@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import session from 'express-session';
 import usersRouter from './routes/users.js';
-import homeRouter from './routes/home.js';
 import productsRouter from './routes/products.js'
 
 const port = process.env.PORT || 3000;
@@ -33,7 +32,6 @@ app.use(session({
 }));
 
 // routes
-app.use('/api/', homeRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/products', productsRouter);
 
