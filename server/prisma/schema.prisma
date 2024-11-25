@@ -43,11 +43,10 @@ model Purchase {
   invoice_amt   Decimal
   invoice_tax   Decimal
   invoice_total Decimal
-  order_date    Int
+  order_date    DateTime       @default(now())
 
   // Foreign key relation
   customer      Customer  @relation(fields: [customer_id], references: [customer_id])
-
 
   PurchaseItem PurchaseItem[]
 }

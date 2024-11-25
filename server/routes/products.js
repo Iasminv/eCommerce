@@ -27,7 +27,7 @@ router.get('/get/:id', async (req, res) => {
     // Find the products
     const products = await prisma.product.findUnique({
         where: {
-            id: parseInt(id),
+            product_id: parseInt(id),
         },
     });
 
@@ -38,12 +38,5 @@ router.get('/get/:id', async (req, res) => {
 
     res.json(products);
 });
-
-// Purchase router
-router.post('/purchase', async (req, res) => {
-    res.send("Purchase Router")
-});
-
-
 
 export default router;

@@ -2,7 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import session from 'express-session';
 import usersRouter from './routes/users.js';
-import productsRouter from './routes/products.js'
+import productsRouter from './routes/products.js';
+import purchaseRouter from './routes/purchase.js';
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -34,6 +35,7 @@ app.use(session({
 // routes
 app.use('/api/users', usersRouter);
 app.use('/api/products', productsRouter);
+app.use('/api/purchase', purchaseRouter);
 
 app.listen(port, () => {
   console.log(`eCommerce API listening on port ${port}`);
