@@ -11,9 +11,10 @@ export default function Login() {
 
   // form submit function
   async function formSubmit(data) {
-    const url = 'http://localhost:3000/api/users/login';
+    const apiHost = import.meta.env.VITE_API_HOST; // API Host
+    const apiURL = apiHost + "/api/login"; // API url
 
-    const response = await fetch(url, {
+    const response = await fetch(apiURL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

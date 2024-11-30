@@ -1,34 +1,57 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from './routes/Home';
-import Signup from './routes/Signup';
-import Login from './routes/Login';
-import Logout from './routes/Logout';
-import Address from './routes/Address';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import App from './App.jsx';
+import Home from './routes/Home.jsx';
+import Login from './routes/Login.jsx';
+import Logout from './routes/Logout.jsx';
+import Signup from './routes/Signup.jsx';
+import Cart from './routes/Cart.jsx';
+import Details from './routes/Details.jsx';
+import Checkout from './routes/Checkout.jsx';
+import Confirmation from './routes/Confirmation.jsx';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
-  },
-  {
-    path: "/signup",
-    element: <Signup />
-  },
-  {
-    path: "/login",
-    element: <Login />
-  },
-  {
-    path: "/logout",
-    element: <Logout />
-  },
-  {
-    path: "/address",
-    element: <Address />
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: "/details/:product_id",
+        element: <Details />
+      },
+      {
+        path: "/signup",
+        element: <Signup />
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/logout",
+        element: <Logout />
+      },
+      {
+        path: "/cart",
+        element: <Cart />
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />
+      },
+      {
+        path: "/confirmation",
+        element: <Confirmation />
+      }
+    ]
   },
 ]);
 

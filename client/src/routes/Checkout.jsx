@@ -1,13 +1,13 @@
 import { useState, useEffect} from 'react';
 
-export default function Address() {
+export default function Checkout() {
 
-  const [address, setAddress] = useState(null);
+  const [address, setCart] = useState(null);
 
   // fetch address from api
   useEffect(() => {
     async function getUserSession() {
-      const url = "http://localhost:3000/api/users/address";
+      const url = "http://localhost:3000/api/products/all";
       const response = await fetch(url, {
         method: "GET",
         credentials: 'include' // inlcude cookies in request
