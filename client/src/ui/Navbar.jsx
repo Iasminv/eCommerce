@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-
+// Create navbar
 export default function Navbar() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
