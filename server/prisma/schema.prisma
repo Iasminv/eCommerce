@@ -37,12 +37,9 @@ model Purchase {
   province      String
   country       String
   postal_code   String
-  credit_card   Int
+  credit_card   BigInt
   credit_expire Int
   credit_cvv    Int
-  invoice_amt   Decimal
-  invoice_tax   Decimal
-  invoice_total Decimal
   order_date    DateTime       @default(now())
 
   // Foreign key relation

@@ -1,15 +1,12 @@
-import { Link } from "react-router-dom";
-
-// Display card with responsive styling
 export default function CartCard(props) {
-    const { product } = props;
+    const { product, removeFromCart, apiHost } = props;
     return (
         <div className="card mb-3 border-1">
             <div className="row g-0 align-items-center">
                 {/* Image Column */}
                 <div className="col-4 col-sm-3 d-flex align-items-center justify-content-center p-2">
                     <img
-                        src={`${props.apiHost}/images/${product.filename}`}
+                        src={`${apiHost}/images/${product.filename}`}
                         className="img-fluid rounded"
                         alt={product.name}
                         style={{ maxHeight: "150px", objectFit: "contain" }}
@@ -28,8 +25,14 @@ export default function CartCard(props) {
                                 <span className="fw-bold">Quantity:</span> {product.quantity}
                             </p>
                             <p className="mb-0 text-success">
-                                <span className="fw-bold">Total:</span> ${(product.cost * product.quantity)}
+                                <span className="fw-bold">Total:</span> ${(product.cost * product.quantity).toFixed(2)}
                             </p>
+                            <button
+                                className="btn btn-danger bi bi-trash"
+                                onClick={() => removeFromCart(product.product_id)}
+                            >
+                                Remove
+                            </button>
                         </div>
                     </div>
                 </div>

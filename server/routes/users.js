@@ -95,11 +95,12 @@ router.post('/login', async (req,res) => {
   req.session.last_name = existingUser.last_name;
   req.session.save((err) => { 
     if (err) { 
+      console.error('Failed to save session:', err);
       return res.status(500).send('Failed to save session'); 
     } 
-    console.log('logged in user: ' + req.session.email); 
+    console.log('Session after login:', req.session); 
     res.status(201).json({message: 'Login successful', customer_id: req.session.customer_id}); 
-  }); 
+  });
 });
 
 // Logout Route
